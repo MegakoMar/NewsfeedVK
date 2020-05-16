@@ -7,18 +7,21 @@
 //
 
 import UIKit
+import VKSdkFramework
 
 class AuthViewController: UIViewController {
     @IBOutlet weak var authButton: UIButton!
 
+    private var authService: AuthService!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configNavBar()
         configAuthButton()
 
-
+        authService = SceneDelegate.shared().authService
     }
+
 
     // MARK: - Configuration authButton
 
@@ -39,7 +42,7 @@ class AuthViewController: UIViewController {
     // MARK: - Settings action of authButton
 
     @IBAction func authButtonAction(_ sender: UIButton) {
-
+        authService.wakeUpSession()
     }
 }
 

@@ -13,31 +13,15 @@
 		57F58D17246EDE060047A993 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57F58D15246EDE060047A993 /* Main.storyboard */; };
 		57F58D19246EDE0B0047A993 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57F58D18246EDE0B0047A993 /* Assets.xcassets */; };
 		57F58D1C246EDE0B0047A993 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57F58D1A246EDE0B0047A993 /* LaunchScreen.storyboard */; };
-		57F58D25246F02DE0047A993 /* VKSdkFramework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F58D24246F02DE0047A993 /* VKSdkFramework */; };
-		57F58D26246F02DE0047A993 /* VKSdkFramework in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 57F58D24246F02DE0047A993 /* VKSdkFramework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		57F58D2B246FBCD30047A993 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F58D2A246FBCD30047A993 /* FeedTableViewCell.swift */; };
 		57F58D2D246FBCFE0047A993 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F58D2C246FBCFE0047A993 /* FeedViewController.swift */; };
-		57F58D2F246FBF5D0047A993 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F58D2E246FBF5D0047A993 /* Alamofire */; };
-		57F58D30246FBF5D0047A993 /* Alamofire in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 57F58D2E246FBF5D0047A993 /* Alamofire */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		57F58D32246FBF720047A993 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F58D31246FBF720047A993 /* Kingfisher */; };
-		57F58D33246FBF720047A993 /* Kingfisher in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 57F58D31246FBF720047A993 /* Kingfisher */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		57F58D4B246FFB2B0047A993 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F58D4A246FFB2B0047A993 /* UserResponse.swift */; };
+		57F58D4D246FFB440047A993 /* FeedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F58D4C246FFB440047A993 /* FeedResponse.swift */; };
+		57F58D52247000D30047A993 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F58D3E246FC4C40047A993 /* Alamofire.framework */; };
+		57F58D55247000D80047A993 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F58D45246FC8110047A993 /* Kingfisher.framework */; };
+		57F58D57247000DB0047A993 /* VKSdkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F58D41246FC7350047A993 /* VKSdkFramework.framework */; };
+		57F58D5A24702BAF0047A993 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F58D5924702BAF0047A993 /* AuthService.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		57F58D27246F02DE0047A993 /* Embed Libraries */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				57F58D33246FBF720047A993 /* Kingfisher in Embed Libraries */,
-				57F58D26246F02DE0047A993 /* VKSdkFramework in Embed Libraries */,
-				57F58D30246FBF5D0047A993 /* Alamofire in Embed Libraries */,
-			);
-			name = "Embed Libraries";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		57F58D0C246EDE060047A993 /* NewsfeedVK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsfeedVK.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,11 +32,15 @@
 		57F58D18246EDE0B0047A993 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57F58D1B246EDE0B0047A993 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57F58D1D246EDE0B0047A993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		57F58D24246F02DE0047A993 /* VKSdkFramework */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = VKSdkFramework; path = Carthage/Build/iOS/VKSdkFramework.framework/VKSdkFramework; sourceTree = "<group>"; };
 		57F58D2A246FBCD30047A993 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		57F58D2C246FBCFE0047A993 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
-		57F58D2E246FBF5D0047A993 /* Alamofire */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = Alamofire; path = Carthage/Build/iOS/Alamofire.framework/Alamofire; sourceTree = "<group>"; };
-		57F58D31246FBF720047A993 /* Kingfisher */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = Kingfisher; path = Carthage/Build/iOS/Kingfisher.framework/Kingfisher; sourceTree = "<group>"; };
+		57F58D3E246FC4C40047A993 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		57F58D41246FC7350047A993 /* VKSdkFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VKSdkFramework.framework; path = Carthage/Build/iOS/VKSdkFramework.framework; sourceTree = "<group>"; };
+		57F58D45246FC8110047A993 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		57F58D4A246FFB2B0047A993 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		57F58D4C246FFB440047A993 /* FeedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedResponse.swift; sourceTree = "<group>"; };
+		57F58D4E2470008C0047A993 /* Alamofire */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = Alamofire; path = Carthage/Build/iOS/Alamofire.framework/Alamofire; sourceTree = "<group>"; };
+		57F58D5924702BAF0047A993 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +48,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57F58D32246FBF720047A993 /* Kingfisher in Frameworks */,
-				57F58D25246F02DE0047A993 /* VKSdkFramework in Frameworks */,
-				57F58D2F246FBF5D0047A993 /* Alamofire in Frameworks */,
+				57F58D55247000D80047A993 /* Kingfisher.framework in Frameworks */,
+				57F58D57247000DB0047A993 /* VKSdkFramework.framework in Frameworks */,
+				57F58D52247000D30047A993 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,15 +77,17 @@
 		57F58D0E246EDE060047A993 /* NewsfeedVK */ = {
 			isa = PBXGroup;
 			children = (
+				57F58D1D246EDE0B0047A993 /* Info.plist */,
+				57F58D1A246EDE0B0047A993 /* LaunchScreen.storyboard */,
+				57F58D15246EDE060047A993 /* Main.storyboard */,
+				57F58D18246EDE0B0047A993 /* Assets.xcassets */,
 				57F58D0F246EDE060047A993 /* AppDelegate.swift */,
 				57F58D11246EDE060047A993 /* SceneDelegate.swift */,
 				57F58D13246EDE060047A993 /* AuthViewController.swift */,
-				57F58D15246EDE060047A993 /* Main.storyboard */,
-				57F58D18246EDE0B0047A993 /* Assets.xcassets */,
 				57F58D2C246FBCFE0047A993 /* FeedViewController.swift */,
 				57F58D2A246FBCD30047A993 /* FeedTableViewCell.swift */,
-				57F58D1A246EDE0B0047A993 /* LaunchScreen.storyboard */,
-				57F58D1D246EDE0B0047A993 /* Info.plist */,
+				57F58D5B24702BC50047A993 /* Services */,
+				57F58D49246FFAF90047A993 /* Models */,
 			);
 			path = NewsfeedVK;
 			sourceTree = "<group>";
@@ -105,11 +95,29 @@
 		57F58D23246F02DE0047A993 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				57F58D31246FBF720047A993 /* Kingfisher */,
-				57F58D2E246FBF5D0047A993 /* Alamofire */,
-				57F58D24246F02DE0047A993 /* VKSdkFramework */,
+				57F58D4E2470008C0047A993 /* Alamofire */,
+				57F58D45246FC8110047A993 /* Kingfisher.framework */,
+				57F58D41246FC7350047A993 /* VKSdkFramework.framework */,
+				57F58D3E246FC4C40047A993 /* Alamofire.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		57F58D49246FFAF90047A993 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				57F58D4C246FFB440047A993 /* FeedResponse.swift */,
+				57F58D4A246FFB2B0047A993 /* UserResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		57F58D5B24702BC50047A993 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				57F58D5924702BAF0047A993 /* AuthService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,7 +130,6 @@
 				57F58D08246EDE060047A993 /* Sources */,
 				57F58D09246EDE060047A993 /* Frameworks */,
 				57F58D0A246EDE060047A993 /* Resources */,
-				57F58D27246F02DE0047A993 /* Embed Libraries */,
 				57F58D29246F04830047A993 /* ShellScript */,
 			);
 			buildRules = (
@@ -189,16 +196,16 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/VKSdkFramework.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/VKSdkFramework.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 			);
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
-				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/VKSdkFramework.framework",
-				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Kingfisher.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/VKSdkFramework.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Kingfisher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -212,10 +219,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				57F58D14246EDE060047A993 /* AuthViewController.swift in Sources */,
+				57F58D4D246FFB440047A993 /* FeedResponse.swift in Sources */,
 				57F58D2B246FBCD30047A993 /* FeedTableViewCell.swift in Sources */,
 				57F58D2D246FBCFE0047A993 /* FeedViewController.swift in Sources */,
 				57F58D10246EDE060047A993 /* AppDelegate.swift in Sources */,
 				57F58D12246EDE060047A993 /* SceneDelegate.swift in Sources */,
+				57F58D4B246FFB2B0047A993 /* UserResponse.swift in Sources */,
+				57F58D5A24702BAF0047A993 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +371,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NLAKZKBFA2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = NewsfeedVK/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -386,6 +400,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NLAKZKBFA2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = NewsfeedVK/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
