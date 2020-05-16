@@ -60,5 +60,21 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.Mega_koMar.NewsfeedVK</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>vk7468016</string>
+			</array>
+		</dict>
+	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>vk</string>
+		<string>vkauthorize</string>
+	</array>
 </dict>
 </plist>
