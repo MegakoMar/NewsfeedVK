@@ -10,14 +10,23 @@ import UIKit
 
 class FeedViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configNavBar()
 //        tableView.delegate = self
 //        tableView.dataSource = self
     }
-    
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        navigationController?.navigationBar.barStyle = .black
+    }
+
 
     // MARK: - Configuatrion NavigationBar
 
@@ -28,6 +37,7 @@ class FeedViewController: UIViewController {
         self.navigationController?.view.backgroundColor = UIColor.clear
         self.navigationController?.navigationBar.tintColor = UIColor(red: 60/255, green: 92/255, blue: 255/255, alpha: 1)
         self.title = "Лента"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
     }
 }
 
