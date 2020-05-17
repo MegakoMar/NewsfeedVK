@@ -86,7 +86,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8Di-tX-FvX" firstAttribute="top" secondItem="fG7-1z-uEM" secondAttribute="top" id="6bn-1V-M9z"/>
                             <constraint firstItem="8Di-tX-FvX" firstAttribute="leading" secondItem="fG7-1z-uEM" secondAttribute="leading" id="bnB-Zg-Vj8"/>

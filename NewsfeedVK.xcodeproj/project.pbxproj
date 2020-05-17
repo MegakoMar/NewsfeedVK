@@ -21,6 +21,8 @@
 		57F58D55247000D80047A993 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F58D45246FC8110047A993 /* Kingfisher.framework */; };
 		57F58D57247000DB0047A993 /* VKSdkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F58D41246FC7350047A993 /* VKSdkFramework.framework */; };
 		57F58D5A24702BAF0047A993 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F58D5924702BAF0047A993 /* AuthService.swift */; };
+		57F58D5D2471382C0047A993 /* NetWorkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F58D5C2471382C0047A993 /* NetWorkService.swift */; };
+		57F58D5F24713AAE0047A993 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F58D5E24713AAE0047A993 /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		57F58D4C246FFB440047A993 /* FeedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedResponse.swift; sourceTree = "<group>"; };
 		57F58D4E2470008C0047A993 /* Alamofire */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = Alamofire; path = Carthage/Build/iOS/Alamofire.framework/Alamofire; sourceTree = "<group>"; };
 		57F58D5924702BAF0047A993 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		57F58D5C2471382C0047A993 /* NetWorkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkService.swift; sourceTree = "<group>"; };
+		57F58D5E24713AAE0047A993 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				57F58D5924702BAF0047A993 /* AuthService.swift */,
+				57F58D5C2471382C0047A993 /* NetWorkService.swift */,
+				57F58D5E24713AAE0047A993 /* API.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -222,9 +228,11 @@
 				57F58D4D246FFB440047A993 /* FeedResponse.swift in Sources */,
 				57F58D2B246FBCD30047A993 /* FeedTableViewCell.swift in Sources */,
 				57F58D2D246FBCFE0047A993 /* FeedViewController.swift in Sources */,
+				57F58D5D2471382C0047A993 /* NetWorkService.swift in Sources */,
 				57F58D10246EDE060047A993 /* AppDelegate.swift in Sources */,
 				57F58D12246EDE060047A993 /* SceneDelegate.swift in Sources */,
 				57F58D4B246FFB2B0047A993 /* UserResponse.swift in Sources */,
+				57F58D5F24713AAE0047A993 /* API.swift in Sources */,
 				57F58D5A24702BAF0047A993 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

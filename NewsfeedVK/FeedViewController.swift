@@ -15,9 +15,12 @@ class FeedViewController: UIViewController {
         return .lightContent
     }
 
+    private let netWorkService = NetWorkService()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configNavBar()
+        netWorkService.getFeed()
 //        tableView.delegate = self
 //        tableView.dataSource = self
     }

@@ -20,6 +20,12 @@ class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     private let appID = "7468016"
     private let vkSdk: VKSdk
 
+    weak var delegate: AuthServiceDelegate?
+
+    var token: String? {
+        return VKSdk.accessToken()?.accessToken
+    }
+
     override init() {
         vkSdk = VKSdk.initialize(withAppId: appID)
         super.init()
@@ -27,8 +33,6 @@ class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
         vkSdk.register(self)
         vkSdk.uiDelegate = self
     }
-
-    weak var delegate: AuthServiceDelegate?
 
     // MARK: - wakeUpSession
 
