@@ -16,22 +16,19 @@ class FeedViewController: UIViewController {
         return .lightContent
     }
 
-    private let netWorkService: Networking = NetWorkService()
-    private let params = ["filters": "post"]
+    private var fetcher: DataFetcher = NetworkDataFetcher(networking: NetworkService())
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configNavBar()
-        netWorkService.request(path: API.newsFeed, params: params, completition: { (url) in
-            guard let url = url else {
+        fetcher.getFeed { (feedResponse) in
+            guard let feedResponse = feedResponse else {
                 return
             }
-            AF.request(url).responseJSON { (response) in
-                print(response)
-            }
-
-        })
-
+            feedResponse.items.map({ (feedItem) in
+                print(feedItem.date)
+            })
+        }
 //        tableView.delegate = self
 //        tableView.dataSource = self
     }

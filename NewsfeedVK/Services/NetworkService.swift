@@ -10,10 +10,10 @@ import Foundation
 import Alamofire
 
 protocol Networking {
-    func request(path: String, params: [String: String], completition: @escaping (URL?) -> Void)
+    func request(path: String, params: [String: String], completition: @escaping (Data?, Error?) -> Void)
 }
 
-class NetWorkService: Networking {
+class NetworkService: Networking {
 
     private let authService: AuthService
 
@@ -21,7 +21,7 @@ class NetWorkService: Networking {
         self.authService = authService
     }
 
-    func request(path: String, params: [String : String], completition: @escaping (URL?) -> Void) {
+    func request(path: String, params: [String : String], completition: @escaping (Data?, Error?) -> Void) {
         guard let token = authService.token else {
             return
         }
@@ -30,16 +30,12 @@ class NetWorkService: Networking {
         allParams["v"] = API.version
 
         let url = self.url(from: API.newsFeed, params: allParams)
+        print(url)
 
-        completition(url)
-//        let session = URLSession.init(configuration: .default)
-//        let request = URLRequest(url: url)
-//        let task = session.dataTask(with: request) { (data, response, error) in
-//            DispatchQueue.main.async {
-//                complition(data, error)
-//            }
-//        }
-//        task.resume()
+        let request = AF.request(url)
+        request.validate().responseJSON { (response) -> Void in
+            completition(response.data, response.error)
+        }
     }
 
     private func url(from path: String, params: [String: String]) -> URL {
@@ -51,6 +47,3 @@ class NetWorkService: Networking {
         return components.url!
     }
 }
-
-
-//https://api.vk.com/method/users.get?user_ids=210700286&fields=bdate&access_token=533bacf01e11f55b536a565b57531ac114461ae8736d6506a3&v=5.103
