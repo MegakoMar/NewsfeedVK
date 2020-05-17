@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class FeedViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -15,12 +16,22 @@ class FeedViewController: UIViewController {
         return .lightContent
     }
 
-    private let netWorkService = NetWorkService()
+    private let netWorkService: Networking = NetWorkService()
+    private let params = ["filters": "post"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configNavBar()
-        netWorkService.getFeed()
+        netWorkService.request(path: API.newsFeed, params: params, completition: { (url) in
+            guard let url = url else {
+                return
+            }
+            AF.request(url).responseJSON { (response) in
+                print(response)
+            }
+
+        })
+
 //        tableView.delegate = self
 //        tableView.dataSource = self
     }
