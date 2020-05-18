@@ -20,6 +20,8 @@ struct NetworkDataFetcher: DataFetcher {
         self.networking = networking
     }
 
+    // MARK: - Getting Newsfeed
+
     func getFeed(response: @escaping (FeedResponse?) -> Void) {
         let params = ["filters": "post"]
         networking.request(path: API.newsFeed, params: params) { (data, error) in
@@ -31,6 +33,8 @@ struct NetworkDataFetcher: DataFetcher {
             response(decoded?.response)
         }
     }
+
+    // MARK: - Decoding JSON Data
 
     private func decodeJSON<T: Decodable>(type: T.Type, from: Data?) -> T? {
         let decoder = JSONDecoder()

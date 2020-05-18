@@ -21,6 +21,8 @@ class NetworkService: Networking {
         self.authService = authService
     }
 
+    // MARK: - Request to API from URL
+
     func request(path: String, params: [String : String], completition: @escaping (Data?, Error?) -> Void) {
         guard let token = authService.token else {
             return
@@ -37,6 +39,8 @@ class NetworkService: Networking {
             completition(response.data, response.error)
         }
     }
+
+    // MARK: - Creating URL
 
     private func url(from path: String, params: [String: String]) -> URL {
         var components = URLComponents()
