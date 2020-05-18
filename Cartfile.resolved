@@ -1,3 +1,4 @@
-github "Alamofire/Alamofire" "5.1.0"
+github "Alamofire/Alamofire" "5.2.0"
 github "VKCOM/vk-ios-sdk" "1.5.1"
+github "freshOS/Stevia" "5.0.1"
 github "onevcat/Kingfisher" "5.14.0"

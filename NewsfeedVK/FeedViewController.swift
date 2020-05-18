@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 
 class FeedViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -26,11 +25,13 @@ class FeedViewController: UIViewController {
                 return
             }
             feedResponse.items.map({ (feedItem) in
-                print(feedItem.date)
+//                print(feedItem.date)
             })
         }
-//        tableView.delegate = self
-//        tableView.dataSource = self
+
+        tableView.delegate = self
+        tableView.dataSource = self
+//        tableView.reloadData()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -52,14 +53,22 @@ class FeedViewController: UIViewController {
     }
 }
 
-// MARK: - Extension UITableViewDataSource, UITableViewDelegate
+ // MARK: - Extension UITableViewDataSource, UITableViewDelegate
 
-//extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        <#code#>
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        <#code#>
-//    }
-//}
+extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "feedCellId") else {
+            fatalError("Unknowned cell id")
+        }
+
+//        if let cell = cell as? NewsfeedCell {
+//            cell.nameGroupLabel.text = "Название группы"
+//            cell.dateLabel.text = "18.05.2020"
+//        }
+        return cell
+    }
+}

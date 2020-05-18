@@ -24,6 +24,7 @@
 		57F58D5D2471382C0047A993 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F58D5C2471382C0047A993 /* NetworkService.swift */; };
 		57F58D5F24713AAE0047A993 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F58D5E24713AAE0047A993 /* API.swift */; };
 		57F58D612471BEC90047A993 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F58D602471BEC90047A993 /* NetworkDataFetcher.swift */; };
+		57F58D642472866A0047A993 /* NewsfeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F58D632472866A0047A993 /* NewsfeedCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		57F58D5C2471382C0047A993 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		57F58D5E24713AAE0047A993 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		57F58D602471BEC90047A993 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
+		57F58D632472866A0047A993 /* NewsfeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				57F58D13246EDE060047A993 /* AuthViewController.swift */,
 				57F58D2C246FBCFE0047A993 /* FeedViewController.swift */,
 				57F58D2A246FBCD30047A993 /* FeedTableViewCell.swift */,
+				57F58D622472864C0047A993 /* NewsfeedCell */,
 				57F58D5B24702BC50047A993 /* Services */,
 				57F58D49246FFAF90047A993 /* Models */,
 			);
@@ -129,6 +132,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		57F58D622472864C0047A993 /* NewsfeedCell */ = {
+			isa = PBXGroup;
+			children = (
+				57F58D632472866A0047A993 /* NewsfeedCell.swift */,
+			);
+			path = NewsfeedCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +157,8 @@
 			dependencies = (
 			);
 			name = NewsfeedVK;
+			packageProductDependencies = (
+			);
 			productName = NewsfeedVK;
 			productReference = 57F58D0C246EDE060047A993 /* NewsfeedVK.app */;
 			productType = "com.apple.product-type.application";
@@ -174,6 +187,8 @@
 				Base,
 			);
 			mainGroup = 57F58D03246EDE060047A993;
+			packageReferences = (
+			);
 			productRefGroup = 57F58D0D246EDE060047A993 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -237,6 +252,7 @@
 				57F58D12246EDE060047A993 /* SceneDelegate.swift in Sources */,
 				57F58D4B246FFB2B0047A993 /* UserResponse.swift in Sources */,
 				57F58D5F24713AAE0047A993 /* API.swift in Sources */,
+				57F58D642472866A0047A993 /* NewsfeedCell.swift in Sources */,
 				57F58D5A24702BAF0047A993 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
