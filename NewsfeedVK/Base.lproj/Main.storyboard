@@ -75,7 +75,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedCellId" rowHeight="195" id="DVX-z2-Tlk" customClass="NewsfeedCell" customModule="NewsfeedVK" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="feedCellId" rowHeight="195" id="DVX-z2-Tlk" customClass="NewsfeedCell" customModule="NewsfeedVK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="195"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DVX-z2-Tlk" id="jhy-Ch-UES">
@@ -85,12 +85,15 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="nln-2j-XYw">
                                                     <rect key="frame" x="18" y="15" width="378" height="40"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icLike" translatesAutoresizingMaskIntoConstraints="NO" id="mXG-60-r3g">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icAva" translatesAutoresizingMaskIntoConstraints="NO" id="mXG-60-r3g">
                                                             <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="3xj-RY-Fqj"/>
                                                                 <constraint firstAttribute="width" constant="40" id="m19-Oo-HgE"/>
                                                             </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="20"/>
+                                                            </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="xya-O6-BfE">
                                                             <rect key="frame" x="52" y="0.0" width="326" height="40"/>
@@ -123,7 +126,7 @@
                                                         <constraint firstAttribute="height" constant="40" id="HqS-wG-DZh"/>
                                                     </constraints>
                                                 </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vR-SV-wgH">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vR-SV-wgH">
                                                     <rect key="frame" x="18" y="71" width="378" height="63"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
@@ -145,7 +148,7 @@
                                                                                 <constraint firstAttribute="width" constant="26" id="VkT-oV-8Qr"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="777" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSh-T3-f79">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="777" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSh-T3-f79">
                                                                             <rect key="frame" x="28" y="0.0" width="23" height="26"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                             <color key="textColor" red="0.49803921569999998" green="0.52941176469999995" blue="0.58431372550000005" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
@@ -166,7 +169,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="oEp-vV-u9X"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mk-HT-kzY">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mk-HT-kzY">
                                                                             <rect key="frame" x="28" y="0.0" width="16" height="26"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                             <color key="textColor" red="0.49803921569999998" green="0.52941176469999995" blue="0.58431372550000005" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
@@ -189,7 +192,7 @@
                                                                         <constraint firstAttribute="width" constant="26" id="rjn-vJ-KHU"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TtZ-h1-ihN">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TtZ-h1-ihN">
                                                                     <rect key="frame" x="28" y="0.0" width="8" height="26"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <color key="textColor" red="0.49803921569999998" green="0.52941176469999995" blue="0.58431372550000005" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
@@ -212,7 +215,7 @@
                                                                 <constraint firstAttribute="width" constant="26" id="GSe-LK-l8c"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="865" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhZ-1S-qbM">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="865" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhZ-1S-qbM">
                                                             <rect key="frame" x="28" y="0.0" width="24.5" height="26"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" red="0.49803921569999998" green="0.52941176469999995" blue="0.58431372550000005" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
@@ -243,15 +246,15 @@
                                             <outlet property="commentsCountLabel" destination="1mk-HT-kzY" id="hSd-mi-Zsv"/>
                                             <outlet property="commentsImageView" destination="NFB-ST-82T" id="VPG-Y3-yNQ"/>
                                             <outlet property="dateLabel" destination="7D9-dD-bcO" id="36Z-76-mTN"/>
-                                            <outlet property="eyesCountLabel" destination="zhZ-1S-qbM" id="b75-Vs-vFB"/>
-                                            <outlet property="eyesImageView" destination="tVf-NM-iWB" id="bH8-j3-ImW"/>
                                             <outlet property="groupIconImageView" destination="mXG-60-r3g" id="JWP-9O-eyH"/>
                                             <outlet property="groupNameLabel" destination="SAf-Xo-jm3" id="qKl-kZ-7eb"/>
                                             <outlet property="likesCountLabel" destination="mSh-T3-f79" id="TCl-dm-CSO"/>
                                             <outlet property="likesImageView" destination="gSW-xA-vax" id="Q1l-G6-wiA"/>
                                             <outlet property="newsTextLabel" destination="7vR-SV-wgH" id="aI0-T1-tVC"/>
-                                            <outlet property="shareCountLabel" destination="TtZ-h1-ihN" id="wy6-Dc-MdI"/>
-                                            <outlet property="shareImageView" destination="8tR-Mp-LdJ" id="FyI-Fy-BOM"/>
+                                            <outlet property="sharesCountLabel" destination="TtZ-h1-ihN" id="wy6-Dc-MdI"/>
+                                            <outlet property="sharesImageView" destination="8tR-Mp-LdJ" id="FyI-Fy-BOM"/>
+                                            <outlet property="viewsCountLabel" destination="zhZ-1S-qbM" id="b75-Vs-vFB"/>
+                                            <outlet property="viewsImageView" destination="tVf-NM-iWB" id="bH8-j3-ImW"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -277,6 +280,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icAva" width="40" height="40"/>
         <image name="icComment" width="26" height="26"/>
         <image name="icEye" width="26" height="26"/>
         <image name="icLike" width="26" height="26"/>

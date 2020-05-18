@@ -14,8 +14,8 @@ struct FeedResponseWrapped: Codable {
 
 struct FeedResponse: Codable {
     var items: [FeedItem]
-//    var profiles: [Profile]
-//    var groups: [Group]
+    var profiles: [Profile]
+    var groups: [Group]
 //    var nextFrom: String?
 }
 
@@ -84,26 +84,40 @@ struct CountableItem: Codable {
 //}
 //
 //
-//protocol ProfileRepresenatable {
-//    var id: Int { get }
-//    var name: String { get }
-//    var photo: String { get }
-//}
-//
-//struct Profile: Codable, ProfileRepresenatable {
-//    let id: Int
-//    let firstName: String
-//    let lastName: String
-//    let photo100: String
-//
-//    var name: String { return firstName + " " + lastName }
-//    var photo: String { return photo100 }
-//}
-//
-//struct Group: Codable, ProfileRepresenatable {
-//    let id: Int
-//    let name: String
-//    let photo100: String
-//
-//    var photo: String { return photo100 }
-//}
+
+protocol ProfileRepresenatable {
+    var id: Int { get }
+    var name: String { get }
+    var photo: String { get }
+}
+
+struct Profile: Codable, ProfileRepresenatable {
+    let id: Int
+    let firstName: String
+    let lastName: String
+    let photo50: String
+
+    var name: String { return firstName + " " + lastName }
+    var photo: String { return photo50 }
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case photo50 = "photo_50"
+    }
+}
+
+struct Group: Codable, ProfileRepresenatable {
+    let id: Int
+    let name: String
+    let photo50: String
+
+    var photo: String { return photo50 }
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case photo50 = "photo_50"
+    }
+}
