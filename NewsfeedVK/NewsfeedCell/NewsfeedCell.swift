@@ -17,6 +17,13 @@ protocol FeedCellViewModel {
     var comments: String? { get }
     var shares: String? { get }
     var views: String? { get }
+    var photoAttachment: FeedCellAphotoAttachmentViewModel? { get }
+}
+
+protocol FeedCellAphotoAttachmentViewModel {
+    var photoUrl: String { get }
+    var width: Int { get }
+    var height: Int { get }
 }
 
 class NewsfeedCell: UITableViewCell {
@@ -24,6 +31,7 @@ class NewsfeedCell: UITableViewCell {
     @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var newsTextLabel: UILabel!
+    @IBOutlet weak var postImageView: WebImageView!
     @IBOutlet weak var likesImageView: UIImageView!
     @IBOutlet weak var likesCountLabel: UILabel!
     @IBOutlet weak var commentsImageView: UIImageView!
@@ -42,5 +50,12 @@ class NewsfeedCell: UITableViewCell {
         commentsCountLabel.text = viewModel.comments
         sharesCountLabel.text = viewModel.shares
         viewsCountLabel.text = viewModel.views
+
+        if let photoAttachment = viewModel.photoAttachment {
+            postImageView.setImage(imageURL: photoAttachment.photoUrl)
+            postImageView.isHidden = false
+        } else {
+            postImageView.isHidden = true
+        }
     }
 }

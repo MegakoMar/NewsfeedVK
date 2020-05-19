@@ -78,6 +78,8 @@ class FeedViewController: UIViewController {
 
         let dateTitle = dateFormatter.string(from: date)
 
+        let photoAttachment = self.photoAttachment(feedItem: feedItem)
+
         return FeedViewModel.Cell.init(
             iconGroupImage: profile.photo,
             groupName: profile.name,
@@ -86,7 +88,8 @@ class FeedViewController: UIViewController {
             likes: String(feedItem.likes?.count ?? 0),
             comments: String(feedItem.comments?.count ?? 0),
             shares: String(feedItem.reposts?.count ?? 0),
-            views: String(feedItem.views?.count ?? 0)
+            views: String(feedItem.views?.count ?? 0),
+            photoAttachment: photoAttachment
         )
     }
 
@@ -99,6 +102,21 @@ class FeedViewController: UIViewController {
             myProfileRepresenatable.id == normalSourceId
         }
         return profileRepresenatable!
+    }
+
+    // MARK: - Set First Image from Attachment
+
+    private func photoAttachment(feedItem: FeedItem) -> FeedViewModel.FeedCellPhotoAttachment? {
+        guard let photos = feedItem.attachments?.compactMap({ (attachment) in
+            attachment.photo
+        }), let firstPhoto = photos.first else {
+            return nil
+        }
+        return FeedViewModel.FeedCellPhotoAttachment.init(
+            photoUrl: firstPhoto.url,
+            width: firstPhoto.width,
+            height: firstPhoto.height
+        )
     }
 }
 

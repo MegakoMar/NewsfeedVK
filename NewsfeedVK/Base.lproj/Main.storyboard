@@ -75,11 +75,11 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="feedCellId" rowHeight="195" id="DVX-z2-Tlk" customClass="NewsfeedCell" customModule="NewsfeedVK" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="195"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="feedCellId" rowHeight="423.5" id="DVX-z2-Tlk" customClass="NewsfeedCell" customModule="NewsfeedVK" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="423.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DVX-z2-Tlk" id="jhy-Ch-UES">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="195"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="423.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="nln-2j-XYw">
@@ -127,13 +127,13 @@
                                                     </constraints>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vR-SV-wgH">
-                                                    <rect key="frame" x="18" y="71" width="378" height="63"/>
+                                                    <rect key="frame" x="18" y="71" width="378" height="17.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="ly2-ZD-tXE">
-                                                    <rect key="frame" x="18" y="159" width="182" height="26"/>
+                                                    <rect key="frame" x="18" y="387.5" width="182" height="26"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="ebu-CN-rEX">
                                                             <rect key="frame" x="0.0" y="0.0" width="119" height="26"/>
@@ -205,8 +205,14 @@
                                                         <constraint firstAttribute="height" constant="26" id="Yap-ug-JPx"/>
                                                     </constraints>
                                                 </stackView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Обои на рабочий стол 1440x900" translatesAutoresizingMaskIntoConstraints="NO" id="ECt-hQ-eOl" customClass="WebImageView" customModule="NewsfeedVK" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="103.5" width="414" height="274"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="274" id="ZVY-cJ-X6R"/>
+                                                    </constraints>
+                                                </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="hYH-aq-ZPe">
-                                                    <rect key="frame" x="343.5" y="159" width="52.5" height="26"/>
+                                                    <rect key="frame" x="343.5" y="387.5" width="52.5" height="26"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icEye" translatesAutoresizingMaskIntoConstraints="NO" id="tVf-NM-iWB">
                                                             <rect key="frame" x="0.0" y="0.0" width="26" height="26"/>
@@ -228,12 +234,15 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="ECt-hQ-eOl" firstAttribute="top" secondItem="7vR-SV-wgH" secondAttribute="bottom" constant="15" id="BMp-7F-KUA"/>
+                                                <constraint firstItem="ECt-hQ-eOl" firstAttribute="leading" secondItem="jhy-Ch-UES" secondAttribute="leading" id="CHa-VD-nUP"/>
                                                 <constraint firstItem="7vR-SV-wgH" firstAttribute="top" secondItem="nln-2j-XYw" secondAttribute="bottom" constant="16" id="S7G-gn-WBV"/>
                                                 <constraint firstItem="ly2-ZD-tXE" firstAttribute="leading" secondItem="jhy-Ch-UES" secondAttribute="leading" constant="18" id="VY5-z3-kWa"/>
                                                 <constraint firstAttribute="trailing" secondItem="hYH-aq-ZPe" secondAttribute="trailing" constant="18" id="XH1-LT-Tna"/>
+                                                <constraint firstAttribute="trailing" secondItem="ECt-hQ-eOl" secondAttribute="trailing" id="ddx-HO-Xxm"/>
+                                                <constraint firstItem="hYH-aq-ZPe" firstAttribute="top" secondItem="ECt-hQ-eOl" secondAttribute="bottom" constant="10" id="eIg-UO-pGd"/>
                                                 <constraint firstItem="nln-2j-XYw" firstAttribute="leading" secondItem="jhy-Ch-UES" secondAttribute="leading" constant="18" id="ewG-1T-9C5"/>
                                                 <constraint firstAttribute="bottom" secondItem="ly2-ZD-tXE" secondAttribute="bottom" constant="10" id="fM9-RR-GUO"/>
-                                                <constraint firstItem="ly2-ZD-tXE" firstAttribute="top" secondItem="7vR-SV-wgH" secondAttribute="bottom" constant="25" id="fUE-mH-Iy1"/>
                                                 <constraint firstAttribute="trailing" secondItem="nln-2j-XYw" secondAttribute="trailing" constant="18" id="m33-LB-Saa"/>
                                                 <constraint firstItem="7vR-SV-wgH" firstAttribute="leading" secondItem="jhy-Ch-UES" secondAttribute="leading" constant="18" id="nBj-Gk-KPV"/>
                                                 <constraint firstAttribute="bottom" secondItem="hYH-aq-ZPe" secondAttribute="bottom" constant="10" id="qGU-BA-TEc"/>
@@ -251,6 +260,7 @@
                                             <outlet property="likesCountLabel" destination="mSh-T3-f79" id="TCl-dm-CSO"/>
                                             <outlet property="likesImageView" destination="gSW-xA-vax" id="Q1l-G6-wiA"/>
                                             <outlet property="newsTextLabel" destination="7vR-SV-wgH" id="aI0-T1-tVC"/>
+                                            <outlet property="postImageView" destination="ECt-hQ-eOl" id="J1Y-gd-DMH"/>
                                             <outlet property="sharesCountLabel" destination="TtZ-h1-ihN" id="wy6-Dc-MdI"/>
                                             <outlet property="sharesImageView" destination="8tR-Mp-LdJ" id="FyI-Fy-BOM"/>
                                             <outlet property="viewsCountLabel" destination="zhZ-1S-qbM" id="b75-Vs-vFB"/>
@@ -285,5 +295,6 @@
         <image name="icEye" width="26" height="26"/>
         <image name="icLike" width="26" height="26"/>
         <image name="icShare" width="26" height="26"/>
+        <image name="Обои на рабочий стол 1440x900" width="1440" height="900"/>
     </resources>
 </document>
