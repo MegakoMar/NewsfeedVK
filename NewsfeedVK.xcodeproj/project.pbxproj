@@ -115,9 +115,9 @@
 		57F58D49246FFAF90047A993 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				57F58D6C2473DAB20047A993 /* ViewModel */,
 				57F58D4C246FFB440047A993 /* FeedResponse.swift */,
 				57F58D4A246FFB2B0047A993 /* UserResponse.swift */,
+				57F58D6C2473DAB20047A993 /* ViewModel */,
 			);
 			path = Models;
 			sourceTree = "<group>";

@@ -28,7 +28,7 @@ struct FeedItem: Codable {
     let likes: CountableItem?
     let reposts: CountableItem?
     let views: CountableItem?
-//    let attachments: [Attechment]?
+    let attachments: [Attechment]?
 
     enum CodingKeys: String, CodingKey {
         case sourceId = "source_id"
@@ -39,6 +39,7 @@ struct FeedItem: Codable {
         case likes
         case reposts
         case views
+        case attachments
     }
 }
 
@@ -46,44 +47,44 @@ struct CountableItem: Codable {
     let count: Int
 }
 
-//struct Attechment: Codable {
-//    let photo: Photo?
-//}
-//
-//struct Photo: Codable {
-//    let sizes: [PhotoSize]
-//
-//    var height: Int {
-//         return getPropperSize().height
-//    }
-//
-//    var width: Int {
-//        return getPropperSize().width
-//    }
-//
-//    var srcBIG: String {
-//         return getPropperSize().url
-//    }
-//
-//    private func getPropperSize() -> PhotoSize {
-//        if let sizeX = sizes.first(where: { $0.type == "x" }) {
-//            return sizeX
-//        } else if let fallBackSize = sizes.last {
-//             return fallBackSize
-//        } else {
-//            return PhotoSize(type: "wrong image", url: "wrong image", width: 0, height: 0)
-//        }
-//    }
-//}
-//
-//struct PhotoSize: Codable {
-//    let type: String
-//    let url: String
-//    let width: Int
-//    let height: Int
-//}
-//
-//
+struct Attechment: Codable {
+    let photo: Photo?
+//    let video: Video?
+}
+
+struct Photo: Codable {
+    let sizes: [PhotoSize]
+
+    var url: String {
+         return getPropperSize().url
+    }
+
+    var width: Int {
+        return getPropperSize().width
+    }
+
+    var height: Int {
+         return getPropperSize().height
+    }
+
+    private func getPropperSize() -> PhotoSize {
+        if let sizeX = sizes.first(where: { $0.type == "x" }) {
+            return sizeX
+        } else if let fallBackSize = sizes.last {
+             return fallBackSize
+        } else {
+            return PhotoSize(type: "wrong image", url: "wrong image", width: 0, height: 0)
+        }
+    }
+}
+
+struct PhotoSize: Codable {
+    let type: String
+    let url: String
+    let width: Int
+    let height: Int
+}
+
 
 protocol ProfileRepresenatable {
     var id: Int { get }
