@@ -20,7 +20,7 @@ protocol FeedCellViewModel {
 }
 
 class NewsfeedCell: UITableViewCell {
-    @IBOutlet weak var groupIconImageView: UIImageView!
+    @IBOutlet weak var groupIconImageView: WebImageView!
     @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var newsTextLabel: UILabel!
@@ -34,6 +34,7 @@ class NewsfeedCell: UITableViewCell {
     @IBOutlet weak var viewsCountLabel: UILabel!
 
     func set(viewModel: FeedCellViewModel) {
+        groupIconImageView.setImage(imageURL: viewModel.iconGroupImage)
         groupNameLabel.text = viewModel.groupName
         dateLabel.text = viewModel.date
         newsTextLabel.text = viewModel.text

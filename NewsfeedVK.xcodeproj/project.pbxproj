@@ -13,7 +13,6 @@
 		57F58D17246EDE060047A993 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57F58D15246EDE060047A993 /* Main.storyboard */; };
 		57F58D19246EDE0B0047A993 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57F58D18246EDE0B0047A993 /* Assets.xcassets */; };
 		57F58D1C246EDE0B0047A993 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57F58D1A246EDE0B0047A993 /* LaunchScreen.storyboard */; };
-		57F58D2B246FBCD30047A993 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F58D2A246FBCD30047A993 /* FeedTableViewCell.swift */; };
 		57F58D2D246FBCFE0047A993 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F58D2C246FBCFE0047A993 /* FeedViewController.swift */; };
 		57F58D4B246FFB2B0047A993 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F58D4A246FFB2B0047A993 /* UserResponse.swift */; };
 		57F58D4D246FFB440047A993 /* FeedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F58D4C246FFB440047A993 /* FeedResponse.swift */; };
@@ -26,6 +25,7 @@
 		57F58D612471BEC90047A993 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F58D602471BEC90047A993 /* NetworkDataFetcher.swift */; };
 		57F58D642472866A0047A993 /* NewsfeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F58D632472866A0047A993 /* NewsfeedCell.swift */; };
 		57F58D692472E41B0047A993 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F58D682472E41B0047A993 /* FeedViewModel.swift */; };
+		57F58D6B2473D7150047A993 /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F58D6A2473D7150047A993 /* WebImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +37,6 @@
 		57F58D18246EDE0B0047A993 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57F58D1B246EDE0B0047A993 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57F58D1D246EDE0B0047A993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		57F58D2A246FBCD30047A993 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		57F58D2C246FBCFE0047A993 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		57F58D3E246FC4C40047A993 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		57F58D41246FC7350047A993 /* VKSdkFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VKSdkFramework.framework; path = Carthage/Build/iOS/VKSdkFramework.framework; sourceTree = "<group>"; };
@@ -51,6 +50,7 @@
 		57F58D602471BEC90047A993 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		57F58D632472866A0047A993 /* NewsfeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedCell.swift; sourceTree = "<group>"; };
 		57F58D682472E41B0047A993 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		57F58D6A2473D7150047A993 /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,9 +93,7 @@
 				57F58D18246EDE0B0047A993 /* Assets.xcassets */,
 				57F58D0F246EDE060047A993 /* AppDelegate.swift */,
 				57F58D11246EDE060047A993 /* SceneDelegate.swift */,
-				57F58D13246EDE060047A993 /* AuthViewController.swift */,
-				57F58D2C246FBCFE0047A993 /* FeedViewController.swift */,
-				57F58D2A246FBCD30047A993 /* FeedTableViewCell.swift */,
+				57F58D6E2473DAF30047A993 /* ViewControllers */,
 				57F58D622472864C0047A993 /* NewsfeedCell */,
 				57F58D5B24702BC50047A993 /* Services */,
 				57F58D49246FFAF90047A993 /* Models */,
@@ -117,9 +115,9 @@
 		57F58D49246FFAF90047A993 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				57F58D6C2473DAB20047A993 /* ViewModel */,
 				57F58D4C246FFB440047A993 /* FeedResponse.swift */,
 				57F58D4A246FFB2B0047A993 /* UserResponse.swift */,
-				57F58D682472E41B0047A993 /* FeedViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -127,6 +125,7 @@
 		57F58D5B24702BC50047A993 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				57F58D6D2473DAC70047A993 /* Helpers */,
 				57F58D5924702BAF0047A993 /* AuthService.swift */,
 				57F58D5C2471382C0047A993 /* NetworkService.swift */,
 				57F58D5E24713AAE0047A993 /* API.swift */,
@@ -141,6 +140,31 @@
 				57F58D632472866A0047A993 /* NewsfeedCell.swift */,
 			);
 			path = NewsfeedCell;
+			sourceTree = "<group>";
+		};
+		57F58D6C2473DAB20047A993 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				57F58D682472E41B0047A993 /* FeedViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		57F58D6D2473DAC70047A993 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				57F58D6A2473D7150047A993 /* WebImageView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		57F58D6E2473DAF30047A993 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				57F58D13246EDE060047A993 /* AuthViewController.swift */,
+				57F58D2C246FBCFE0047A993 /* FeedViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,7 +271,7 @@
 			files = (
 				57F58D14246EDE060047A993 /* AuthViewController.swift in Sources */,
 				57F58D4D246FFB440047A993 /* FeedResponse.swift in Sources */,
-				57F58D2B246FBCD30047A993 /* FeedTableViewCell.swift in Sources */,
+				57F58D6B2473D7150047A993 /* WebImageView.swift in Sources */,
 				57F58D612471BEC90047A993 /* NetworkDataFetcher.swift in Sources */,
 				57F58D2D246FBCFE0047A993 /* FeedViewController.swift in Sources */,
 				57F58D5D2471382C0047A993 /* NetworkService.swift in Sources */,
