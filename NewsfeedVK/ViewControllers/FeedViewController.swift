@@ -19,6 +19,8 @@ class FeedViewController: UIViewController {
 
     private var feedViewModel = FeedViewModel.init(cells: [])
 
+    var cellLayoutCallculator: NewsfeedCellLayoutCalculator = NewsfeedCellLayoutCalculator()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configNavBar()
@@ -80,6 +82,8 @@ class FeedViewController: UIViewController {
 
         let photoAttachment = self.photoAttachment(feedItem: feedItem)
 
+        let sizes = cellLayoutCallculator.sizes(postText: feedItem.text, photoAttachment: photoAttachment)
+
         return FeedViewModel.Cell.init(
             iconGroupImage: profile.photo,
             groupName: profile.name,
@@ -89,7 +93,8 @@ class FeedViewController: UIViewController {
             comments: String(feedItem.comments?.count ?? 0),
             shares: String(feedItem.reposts?.count ?? 0),
             views: String(feedItem.views?.count ?? 0),
-            photoAttachment: photoAttachment
+            photoAttachment: photoAttachment,
+            sizes: sizes
         )
     }
 
@@ -136,5 +141,10 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
             cell.set(viewModel: cellViewModel)
         }
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let cellViewModel = feedViewModel.cells[indexPath.row]
+        return cellViewModel.sizes.totalHeigth
     }
 }

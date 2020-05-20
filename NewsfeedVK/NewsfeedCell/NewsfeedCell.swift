@@ -18,6 +18,7 @@ protocol FeedCellViewModel {
     var shares: String? { get }
     var views: String? { get }
     var photoAttachment: FeedCellAphotoAttachmentViewModel? { get }
+    var sizes: FeedCellSizes { get }
 }
 
 protocol FeedCellAphotoAttachmentViewModel {
@@ -26,11 +27,18 @@ protocol FeedCellAphotoAttachmentViewModel {
     var height: Int { get }
 }
 
+protocol FeedCellSizes {
+    var postLabelFrame: CGRect { get }
+    var attachmentFrame: CGRect { get }
+    var bottomOfCell: CGRect { get }
+    var totalHeigth: CGFloat { get }
+}
+
 class NewsfeedCell: UITableViewCell {
     @IBOutlet weak var groupIconImageView: WebImageView!
     @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var newsTextLabel: UILabel!
+    @IBOutlet weak var postLabel: UILabel!
     @IBOutlet weak var postImageView: WebImageView!
     @IBOutlet weak var likesImageView: UIImageView!
     @IBOutlet weak var likesCountLabel: UILabel!
@@ -40,16 +48,19 @@ class NewsfeedCell: UITableViewCell {
     @IBOutlet weak var sharesCountLabel: UILabel!
     @IBOutlet weak var viewsImageView: UIImageView!
     @IBOutlet weak var viewsCountLabel: UILabel!
+    @IBOutlet weak var bottomStackView: UIStackView!
 
     func set(viewModel: FeedCellViewModel) {
         groupIconImageView.setImage(imageURL: viewModel.iconGroupImage)
         groupNameLabel.text = viewModel.groupName
         dateLabel.text = viewModel.date
-        newsTextLabel.text = viewModel.text
+        postLabel.text = viewModel.text
         likesCountLabel.text = viewModel.likes
         commentsCountLabel.text = viewModel.comments
         sharesCountLabel.text = viewModel.shares
         viewsCountLabel.text = viewModel.views
+        postLabel.frame = viewModel.sizes.postLabelFrame
+        postImageView.frame = viewModel.sizes.attachmentFrame
 
         if let photoAttachment = viewModel.photoAttachment {
             postImageView.setImage(imageURL: photoAttachment.photoUrl)
@@ -57,5 +68,7 @@ class NewsfeedCell: UITableViewCell {
         } else {
             postImageView.isHidden = true
         }
+
+        bottomStackView.frame = viewModel.sizes.bottomOfCell
     }
 }

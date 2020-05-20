@@ -14,6 +14,8 @@ class WebImageView: UIImageView {
         guard let url = URL(string: imageURL) else {
             return
         }
-        self.kf.setImage(with: url)
+        DispatchQueue.main.async { 
+            self.kf.setImage(with: url)
+        }
     }
 }

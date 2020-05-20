@@ -47,6 +47,43 @@ struct CountableItem: Codable {
     let count: Int
 }
 
+protocol ProfileRepresenatable {
+    var id: Int { get }
+    var name: String { get }
+    var photo: String { get }
+}
+
+struct Profile: Codable, ProfileRepresenatable {
+    let id: Int
+    let firstName: String
+    let lastName: String
+    let photo50: String
+
+    var name: String { return firstName + " " + lastName }
+    var photo: String { return photo50 }
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case photo50 = "photo_50"
+    }
+}
+
+struct Group: Codable, ProfileRepresenatable {
+    let id: Int
+    let name: String
+    let photo50: String
+
+    var photo: String { return photo50 }
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case photo50 = "photo_50"
+    }
+}
+
 struct Attechment: Codable {
     let photo: Photo?
 //    let video: Video?
@@ -85,40 +122,6 @@ struct PhotoSize: Codable {
     let height: Int
 }
 
-
-protocol ProfileRepresenatable {
-    var id: Int { get }
-    var name: String { get }
-    var photo: String { get }
-}
-
-struct Profile: Codable, ProfileRepresenatable {
-    let id: Int
-    let firstName: String
-    let lastName: String
-    let photo50: String
-
-    var name: String { return firstName + " " + lastName }
-    var photo: String { return photo50 }
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case firstName = "first_name"
-        case lastName = "last_name"
-        case photo50 = "photo_50"
-    }
-}
-
-struct Group: Codable, ProfileRepresenatable {
-    let id: Int
-    let name: String
-    let photo50: String
-
-    var photo: String { return photo50 }
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case name
-        case photo50 = "photo_50"
-    }
+struct Video: Codable {
+    
 }
