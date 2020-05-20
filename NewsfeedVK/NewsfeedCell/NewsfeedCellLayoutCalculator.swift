@@ -11,14 +11,15 @@ import UIKit
 struct Sizes: FeedCellSizes {
     var postLabelFrame: CGRect
     var attachmentFrame: CGRect
-    var bottomOfCell: CGRect
+    var bottomOfCellFrame: CGRect
     var totalHeigth: CGFloat
 }
 
 struct Constants {
-    static let postTextHeightDefaultHeight: CGFloat = 17
-    static let postImageViewDefaultHeight: CGFloat = 275
+//    static let postTextHeightDefaultHeight: CGFloat = 17
+//    static let postImageViewDefaultHeight: CGFloat = 275
     static let topStackHeight: CGFloat = 40
+    static let bottomViewHeight: CGFloat = 26
     static let bottomInserts = UIEdgeInsets(top: 10, left: 18, bottom: 10, right: 18)
     static let topStackInserts = UIEdgeInsets(top: 15, left: 18, bottom: 16, right: 18)
     static let postLabelFont = UIFont.systemFont(ofSize: 14)
@@ -46,9 +47,24 @@ class NewsfeedCellLayoutCalculator: NewsfeedCellLayoutCalculatorProtocol {
             postLabelFrame.size = CGSize(width: width, height: heigth)
         }
 
+        let postImageFrameAfterLabel = postLabelFrameY + postLabelFrame.height + Constants.topStackInserts.bottom
+        let attachmentFrameY = postLabelFrame.size == CGSize.zero ? postLabelFrameY : postImageFrameAfterLabel
+        var attachmentFrame = CGRect(origin: CGPoint(x: 0, y: attachmentFrameY), size: CGSize.zero)
+
+        if let attachment = photoAttachment {
+            let ratio = CGFloat(Double(attachment.height) / Double(attachment.width))
+            attachmentFrame.size = CGSize(width: screenWidth, height: screenWidth * ratio)
+        }
+
+        let bottomViewFrameY = max(postLabelFrame.maxY, attachmentFrame.maxY) + Constants.bottomInserts.top
+        let bottomViewWidth = screenWidth - Constants.bottomInserts.left - Constants.bottomInserts.right
+        let bottomViewFrame = CGRect(origin: CGPoint(x: Constants.bottomInserts.left, y: bottomViewFrameY), size: CGSize(width: bottomViewWidth, height: Constants.bottomViewHeight))
+
+        let totalHeight: CGFloat = bottomViewFrame.maxY + Constants.bottomInserts.bottom
+
         return Sizes(postLabelFrame: postLabelFrame,
-                     attachmentFrame: CGRect.zero,
-                     bottomOfCell: CGRect.zero,
-                     totalHeigth: 300)
+                     attachmentFrame: attachmentFrame,
+                     bottomOfCellFrame: bottomViewFrame,
+                     totalHeigth: totalHeight)
     }
 }

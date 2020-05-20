@@ -30,7 +30,7 @@ protocol FeedCellAphotoAttachmentViewModel {
 protocol FeedCellSizes {
     var postLabelFrame: CGRect { get }
     var attachmentFrame: CGRect { get }
-    var bottomOfCell: CGRect { get }
+    var bottomOfCellFrame: CGRect { get }
     var totalHeigth: CGFloat { get }
 }
 
@@ -69,6 +69,6 @@ class NewsfeedCell: UITableViewCell {
             postImageView.isHidden = true
         }
 
-        bottomStackView.frame = viewModel.sizes.bottomOfCell
+        bottomStackView.frame = viewModel.sizes.bottomOfCellFrame
     }
 }
