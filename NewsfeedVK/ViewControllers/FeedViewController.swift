@@ -80,9 +80,9 @@ class FeedViewController: UIViewController {
 
         let dateTitle = dateFormatter.string(from: date)
 
-        let photoAttachment = self.photoAttachment(feedItem: feedItem)
+        let photoAttachments = self.photoAttachments(feedItem: feedItem)
 
-        let sizes = cellLayoutCallculator.sizes(postText: feedItem.text, photoAttachment: photoAttachment)
+        let sizes = cellLayoutCallculator.sizes(postText: feedItem.text, photoAttachments: photoAttachments)
 
         return FeedViewModel.Cell.init(
             iconGroupImage: profile.photo,
@@ -93,7 +93,7 @@ class FeedViewController: UIViewController {
             comments: String(feedItem.comments?.count ?? 0),
             shares: String(feedItem.reposts?.count ?? 0),
             views: String(feedItem.views?.count ?? 0),
-            photoAttachment: photoAttachment,
+            photoAttachments: photoAttachments,
             sizes: sizes
         )
     }
@@ -123,6 +123,23 @@ class FeedViewController: UIViewController {
             height: firstPhoto.height
         )
     }
+
+    // MARK: - Set array of photos
+
+    private func photoAttachments(feedItem: FeedItem) -> [FeedViewModel.FeedCellPhotoAttachment] {
+        guard let attachments = feedItem.attachments else {
+            return []
+        }
+        return attachments.compactMap({ (attachment) -> FeedViewModel.FeedCellPhotoAttachment? in
+            guard let photo = attachment.photo else {
+                return nil
+            }
+            return FeedViewModel.FeedCellPhotoAttachment.init(photoUrl: photo.url,
+                                                              width: photo.width,
+                                                              height: photo.height
+            )
+        })
+    }
 }
 
  // MARK: - Extension UITableViewDataSource, UITableViewDelegate
@@ -133,6 +150,11 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        
+//        if feedViewModel.cells[indexPath.row].photoAttachments.count == 1 {
+//
+//        }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "feedCellId") else {
             fatalError("Unknowned cell id")
         }

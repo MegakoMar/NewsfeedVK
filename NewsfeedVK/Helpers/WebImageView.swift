@@ -10,8 +10,8 @@ import UIKit
 import Kingfisher
 
 class WebImageView: UIImageView {
-    func setImage(imageURL: String) {
-        guard let url = URL(string: imageURL) else {
+    func setImage(imageURL: String?) {
+        guard let imageURL = imageURL, let url = URL(string: imageURL) else {
             return
         }
         DispatchQueue.main.async { 

@@ -17,7 +17,7 @@ protocol FeedCellViewModel {
     var comments: String? { get }
     var shares: String? { get }
     var views: String? { get }
-    var photoAttachment: FeedCellAphotoAttachmentViewModel? { get }
+    var photoAttachments: [FeedCellAphotoAttachmentViewModel] { get }
     var sizes: FeedCellSizes { get }
 }
 
@@ -49,6 +49,7 @@ class NewsfeedCell: UITableViewCell {
     @IBOutlet weak var viewsImageView: UIImageView!
     @IBOutlet weak var viewsCountLabel: UILabel!
     @IBOutlet weak var bottomStackView: UIStackView!
+    @IBOutlet weak var collectionView: CollectionView!
 
     func set(viewModel: FeedCellViewModel) {
         groupIconImageView.setImage(imageURL: viewModel.iconGroupImage)
@@ -60,13 +61,24 @@ class NewsfeedCell: UITableViewCell {
         sharesCountLabel.text = viewModel.shares
         viewsCountLabel.text = viewModel.views
         postLabel.frame = viewModel.sizes.postLabelFrame
-        postImageView.frame = viewModel.sizes.attachmentFrame
 
-        if let photoAttachment = viewModel.photoAttachment {
+        if let photoAttachment = viewModel.photoAttachments.first, viewModel.photoAttachments.count == 1 {
             postImageView.setImage(imageURL: photoAttachment.photoUrl)
             postImageView.isHidden = false
+            collectionView.isHidden = true
+            postImageView.frame = viewModel.sizes.attachmentFrame
+        } else if viewModel.photoAttachments.count > 1 {
+            collectionView.set(photos: viewModel.photoAttachments)
+            postImageView.isHidden = true
+//            postImageView.frame = .zero
+            collectionView.isHidden = false
+            collectionView.frame = viewModel.sizes.attachmentFrame
+            collectionView.frame = CGRect(origin: postImageView.frame.origin, size: viewModel.sizes.attachmentFrame.size)
+            print("postImageView.frame: \(postImageView.frame.origin)")
+            print("collectionView.frame: \(collectionView.frame.origin)")
         } else {
             postImageView.isHidden = true
+            collectionView.isHidden = true
         }
 
         bottomStackView.frame = viewModel.sizes.bottomOfCellFrame

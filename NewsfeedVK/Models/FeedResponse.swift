@@ -123,5 +123,11 @@ struct PhotoSize: Codable {
 }
 
 struct Video: Codable {
-    
+    let duration: Int
+    let photo640: String
+
+    enum CodingKeys: String, CodingKey {
+        case duration
+        case photo640 = "photo_640"
+    }
 }

@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -75,11 +76,11 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="feedCellId" rowHeight="423.5" id="DVX-z2-Tlk" customClass="NewsfeedCell" customModule="NewsfeedVK" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="423.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="feedCellId" rowHeight="582" id="DVX-z2-Tlk" customClass="NewsfeedCell" customModule="NewsfeedVK" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="582"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DVX-z2-Tlk" id="jhy-Ch-UES">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="423.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="582"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="nln-2j-XYw">
@@ -133,7 +134,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="ly2-ZD-tXE">
-                                                    <rect key="frame" x="18" y="387.5" width="182" height="26"/>
+                                                    <rect key="frame" x="18" y="546" width="182" height="26"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="ebu-CN-rEX">
                                                             <rect key="frame" x="0.0" y="0.0" width="119" height="26"/>
@@ -205,11 +206,11 @@
                                                         <constraint firstAttribute="height" constant="26" id="Yap-ug-JPx"/>
                                                     </constraints>
                                                 </stackView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ECt-hQ-eOl" customClass="WebImageView" customModule="NewsfeedVK" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="103" width="414" height="274.5"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ECt-hQ-eOl" customClass="WebImageView" customModule="NewsfeedVK" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="103" width="414" height="142"/>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="hYH-aq-ZPe">
-                                                    <rect key="frame" x="343.5" y="387.5" width="52.5" height="26"/>
+                                                    <rect key="frame" x="343.5" y="546" width="52.5" height="26"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icEye" translatesAutoresizingMaskIntoConstraints="NO" id="tVf-NM-iWB">
                                                             <rect key="frame" x="0.0" y="0.0" width="26" height="26"/>
@@ -229,15 +230,76 @@
                                                         <constraint firstAttribute="height" constant="26" id="0cD-EZ-Kd3"/>
                                                     </constraints>
                                                 </stackView>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NXv-hu-C0V" customClass="CollectionView" customModule="NewsfeedVK" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="255" width="414" height="281"/>
+                                                    <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="4" minimumInteritemSpacing="4" id="uJo-Sf-4vb">
+                                                        <size key="itemSize" width="414" height="128"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewFirstCell" id="6HG-Hx-Jen" customClass="CollectionViewFirstCell" customModule="NewsfeedVK" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Huq-Jt-q2i">
+                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ABK-N5-Q7N" customClass="WebImageView" customModule="NewsfeedVK" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                                                    </imageView>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="ABK-N5-Q7N" secondAttribute="trailing" id="5s1-hS-x9z"/>
+                                                                    <constraint firstItem="ABK-N5-Q7N" firstAttribute="top" secondItem="Huq-Jt-q2i" secondAttribute="top" id="LjK-cG-3Uk"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="ABK-N5-Q7N" secondAttribute="bottom" id="aDn-LB-gIO"/>
+                                                                    <constraint firstItem="ABK-N5-Q7N" firstAttribute="leading" secondItem="Huq-Jt-q2i" secondAttribute="leading" id="mz4-Uf-bFG"/>
+                                                                </constraints>
+                                                            </collectionViewCellContentView>
+                                                            <size key="customSize" width="414" height="128"/>
+                                                            <connections>
+                                                                <outlet property="imageView" destination="ABK-N5-Q7N" id="VNB-Fh-3X4"/>
+                                                            </connections>
+                                                        </collectionViewCell>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="CollectionViewCell" id="XcN-kz-g52" customClass="CollectionViewCell" customModule="NewsfeedVK" customModuleProvider="target">
+                                                            <rect key="frame" x="104.5" y="132" width="205" height="128"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zwm-R2-fhA">
+                                                                <rect key="frame" x="0.0" y="0.0" width="205" height="128"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s6r-wm-MSU" customClass="WebImageView" customModule="NewsfeedVK" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="205" height="128"/>
+                                                                    </imageView>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="s6r-wm-MSU" firstAttribute="top" secondItem="zwm-R2-fhA" secondAttribute="top" id="MDD-oH-JGW"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="s6r-wm-MSU" secondAttribute="trailing" id="ZbM-UI-PPd"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="s6r-wm-MSU" secondAttribute="bottom" id="f8x-ln-nQN"/>
+                                                                    <constraint firstItem="s6r-wm-MSU" firstAttribute="leading" secondItem="zwm-R2-fhA" secondAttribute="leading" id="tHa-FI-dz0"/>
+                                                                </constraints>
+                                                            </collectionViewCellContentView>
+                                                            <size key="customSize" width="205" height="128"/>
+                                                            <connections>
+                                                                <outlet property="imageView" destination="s6r-wm-MSU" id="wrw-bA-IrG"/>
+                                                            </connections>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                </collectionView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="ly2-ZD-tXE" firstAttribute="top" secondItem="NXv-hu-C0V" secondAttribute="bottom" constant="10" id="1Ko-7N-MIm"/>
+                                                <constraint firstItem="NXv-hu-C0V" firstAttribute="leading" secondItem="jhy-Ch-UES" secondAttribute="leading" id="7IZ-2m-IuG"/>
                                                 <constraint firstItem="ECt-hQ-eOl" firstAttribute="top" secondItem="7vR-SV-wgH" secondAttribute="bottom" constant="15" id="BMp-7F-KUA"/>
                                                 <constraint firstItem="ECt-hQ-eOl" firstAttribute="leading" secondItem="jhy-Ch-UES" secondAttribute="leading" id="CHa-VD-nUP"/>
+                                                <constraint firstItem="NXv-hu-C0V" firstAttribute="top" secondItem="7vR-SV-wgH" secondAttribute="bottom" constant="167" id="Fre-OP-d3r"/>
                                                 <constraint firstItem="7vR-SV-wgH" firstAttribute="top" secondItem="nln-2j-XYw" secondAttribute="bottom" constant="16" id="S7G-gn-WBV"/>
                                                 <constraint firstItem="ly2-ZD-tXE" firstAttribute="leading" secondItem="jhy-Ch-UES" secondAttribute="leading" constant="18" id="VY5-z3-kWa"/>
                                                 <constraint firstAttribute="trailing" secondItem="hYH-aq-ZPe" secondAttribute="trailing" constant="18" id="XH1-LT-Tna"/>
+                                                <constraint firstAttribute="trailing" secondItem="NXv-hu-C0V" secondAttribute="trailing" id="XKK-Ba-Amh"/>
                                                 <constraint firstAttribute="trailing" secondItem="ECt-hQ-eOl" secondAttribute="trailing" id="ddx-HO-Xxm"/>
-                                                <constraint firstItem="hYH-aq-ZPe" firstAttribute="top" secondItem="ECt-hQ-eOl" secondAttribute="bottom" constant="10" id="eIg-UO-pGd"/>
                                                 <constraint firstItem="nln-2j-XYw" firstAttribute="leading" secondItem="jhy-Ch-UES" secondAttribute="leading" constant="18" id="ewG-1T-9C5"/>
                                                 <constraint firstAttribute="bottom" secondItem="ly2-ZD-tXE" secondAttribute="bottom" constant="10" id="fM9-RR-GUO"/>
                                                 <constraint firstAttribute="trailing" secondItem="nln-2j-XYw" secondAttribute="trailing" constant="18" id="m33-LB-Saa"/>
@@ -250,6 +312,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="bottomStackView" destination="ly2-ZD-tXE" id="wSL-eM-aZl"/>
+                                            <outlet property="collectionView" destination="NXv-hu-C0V" id="ZIB-zL-icu"/>
                                             <outlet property="commentsCountLabel" destination="1mk-HT-kzY" id="hSd-mi-Zsv"/>
                                             <outlet property="commentsImageView" destination="NFB-ST-82T" id="VPG-Y3-yNQ"/>
                                             <outlet property="dateLabel" destination="7D9-dD-bcO" id="36Z-76-mTN"/>

@@ -32,7 +32,7 @@ class NetworkService: Networking {
         allParams["v"] = API.version
 
         let url = self.url(from: API.newsFeed, params: allParams)
-//        print(url)
+        print(url)
 
         let request = AF.request(url)
         request.validate().responseJSON { (response) -> Void in

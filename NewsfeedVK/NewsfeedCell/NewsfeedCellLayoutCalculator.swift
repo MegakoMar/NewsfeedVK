@@ -15,18 +15,8 @@ struct Sizes: FeedCellSizes {
     var totalHeigth: CGFloat
 }
 
-struct Constants {
-//    static let postTextHeightDefaultHeight: CGFloat = 17
-//    static let postImageViewDefaultHeight: CGFloat = 275
-    static let topStackHeight: CGFloat = 40
-    static let bottomViewHeight: CGFloat = 26
-    static let bottomInserts = UIEdgeInsets(top: 10, left: 18, bottom: 10, right: 18)
-    static let topStackInserts = UIEdgeInsets(top: 15, left: 18, bottom: 16, right: 18)
-    static let postLabelFont = UIFont.systemFont(ofSize: 14)
-}
-
 protocol NewsfeedCellLayoutCalculatorProtocol {
-    func sizes(postText: String?, photoAttachment: FeedCellAphotoAttachmentViewModel?) -> FeedCellSizes
+    func sizes(postText: String?, photoAttachments: [FeedCellAphotoAttachmentViewModel]) -> FeedCellSizes
 }
 
 class NewsfeedCellLayoutCalculator: NewsfeedCellLayoutCalculatorProtocol {
@@ -36,9 +26,8 @@ class NewsfeedCellLayoutCalculator: NewsfeedCellLayoutCalculatorProtocol {
         self.screenWidth = screenWidth
     }
 
-    func sizes(postText: String?, photoAttachment: FeedCellAphotoAttachmentViewModel?) -> FeedCellSizes {
+    func sizes(postText: String?, photoAttachments: [FeedCellAphotoAttachmentViewModel]) -> FeedCellSizes {
         let postLabelFrameY = Constants.topStackInserts.top + Constants.topStackHeight + Constants.topStackInserts.bottom
-
         var postLabelFrame = CGRect(origin: CGPoint(x: Constants.topStackInserts.left, y: postLabelFrameY), size: CGSize.zero)
 
         if let text = postText, !text.isEmpty {
@@ -51,9 +40,16 @@ class NewsfeedCellLayoutCalculator: NewsfeedCellLayoutCalculatorProtocol {
         let attachmentFrameY = postLabelFrame.size == CGSize.zero ? postLabelFrameY : postImageFrameAfterLabel
         var attachmentFrame = CGRect(origin: CGPoint(x: 0, y: attachmentFrameY), size: CGSize.zero)
 
-        if let attachment = photoAttachment {
+        if let attachment = photoAttachments.first {
             let ratio = CGFloat(Double(attachment.height) / Double(attachment.width))
-            attachmentFrame.size = CGSize(width: screenWidth, height: screenWidth * ratio)
+            if photoAttachments.count == 1 {
+                attachmentFrame.size = CGSize(width: screenWidth, height: screenWidth * ratio)
+            } else if photoAttachments.count > 1 {
+//                let width = screenWidth / 2 - 4
+//                let height = screenWidth * ratio + width * ratio + 4
+//                attachmentFrame.size = CGSize(width: screenWidth, height: height)
+                attachmentFrame.size = CGSize(width: screenWidth, height: screenWidth * ratio)
+            }
         }
 
         let bottomViewFrameY = max(postLabelFrame.maxY, attachmentFrame.maxY) + Constants.bottomInserts.top
