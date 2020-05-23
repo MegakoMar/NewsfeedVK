@@ -63,18 +63,20 @@ extension CollectionView: UICollectionViewDelegate, UICollectionViewDataSource {
 
 extension CollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var width = CGFloat()
-        var height = CGFloat()
         var sizes = CGSize()
-        let ratio = CGFloat(Double(photos[indexPath.row].width) / Double(photos[indexPath.row].height))
-        if indexPath.row == 0 {
-            width = screenWidth
-            height = width * ratio
+        let ratio = CGFloat(Double(photos[indexPath.row].height) / Double(photos[indexPath.row].width))
+        if photos.count == 1 {
+            let width = screenWidth
+            let height = width * ratio + 4
             sizes = CGSize(width: width, height: height)
+        } else if photos.count % 2 == 0 {
+            sizes = setSize(width: screenWidth / 2 - Constants.collectionViewCellsMargins / 2, ratio: ratio)
         } else {
-            width = screenWidth / 2 - 4
-            height = width * ratio
-            sizes = CGSize(width: width, height: height)
+            if indexPath.row == 0 {
+                sizes = setSize(width: screenWidth, ratio: ratio)
+            } else {
+                sizes = setSize(width: screenWidth / 2 - Constants.collectionViewCellsMargins / 2, ratio: ratio)
+            }
         }
         return sizes
     }
@@ -85,5 +87,12 @@ extension CollectionView: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 4
+    }
+
+    // MARK: - Calculation size of collectionViewCell
+
+    private func setSize(width: CGFloat, ratio: CGFloat) -> CGSize {
+        let height = width * ratio
+        return CGSize(width: width, height: height)
     }
 }

@@ -43,12 +43,20 @@ class NewsfeedCellLayoutCalculator: NewsfeedCellLayoutCalculatorProtocol {
         if let attachment = photoAttachments.first {
             let ratio = CGFloat(Double(attachment.height) / Double(attachment.width))
             if photoAttachments.count == 1 {
-                attachmentFrame.size = CGSize(width: screenWidth, height: screenWidth * ratio)
+                attachmentFrame.size = CGSize(width: screenWidth, height: screenWidth * ratio + Constants.collectionViewCellsMargins * 2)
             } else if photoAttachments.count > 1 {
-//                let width = screenWidth / 2 - 4
-//                let height = screenWidth * ratio + width * ratio + 4
-//                attachmentFrame.size = CGSize(width: screenWidth, height: height)
-                attachmentFrame.size = CGSize(width: screenWidth, height: screenWidth * ratio)
+                var height = CGFloat()
+                var heightArray: [CGFloat] = []
+
+                if photoAttachments.count % 2 == 0 {
+                    height += setHeight(count: 0, heightArray: heightArray, photoAttachments: photoAttachments)
+                } else {
+                    height = screenWidth * ratio
+                    heightArray.append(height)
+                    height += setHeight(count: 1, heightArray: heightArray, photoAttachments: photoAttachments)
+                }
+
+                attachmentFrame.size = CGSize(width: screenWidth, height: height)
             }
         }
 
@@ -62,5 +70,25 @@ class NewsfeedCellLayoutCalculator: NewsfeedCellLayoutCalculatorProtocol {
                      attachmentFrame: attachmentFrame,
                      bottomOfCellFrame: bottomViewFrame,
                      totalHeigth: totalHeight)
+    }
+
+    // MARK: - Calculating height of collectionViewx
+
+    private func setHeight(count: Int, heightArray: [CGFloat], photoAttachments: [FeedCellAphotoAttachmentViewModel]) -> CGFloat {
+        let width = screenWidth / 2
+        var height = CGFloat()
+        var heightArray = heightArray
+        var count = count
+
+        for item in count..<photoAttachments.count {
+            let ratioOfItem = CGFloat(Double(photoAttachments[item].height) / Double(photoAttachments[item].width))
+            heightArray.append(width * ratioOfItem)
+        }
+
+        while count < photoAttachments.count {
+            height += max(heightArray[count], heightArray[count+1])
+            count += 2
+        }
+        return height
     }
 }

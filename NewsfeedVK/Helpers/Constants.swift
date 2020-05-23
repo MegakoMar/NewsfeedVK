@@ -15,4 +15,5 @@ struct Constants {
     static let bottomInserts = UIEdgeInsets(top: 10, left: 18, bottom: 10, right: 18)
     static let topStackInserts = UIEdgeInsets(top: 15, left: 18, bottom: 16, right: 18)
     static let postLabelFont = UIFont.systemFont(ofSize: 14)
+    static let collectionViewCellsMargins: CGFloat = 4
 }

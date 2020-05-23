@@ -42,6 +42,6 @@ class CollectionViewFirstCell: UICollectionViewCell {
 
     func set(imageURL: String?) {
         imageView.setImage(imageURL: imageURL)
-        print(#function)
+//        print(#function)
     }
 }
