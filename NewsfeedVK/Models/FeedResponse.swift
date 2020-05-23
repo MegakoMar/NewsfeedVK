@@ -16,7 +16,14 @@ struct FeedResponse: Codable {
     var items: [FeedItem]
     var profiles: [Profile]
     var groups: [Group]
-//    var nextFrom: String?
+    var nextFrom: String?
+
+    enum CodingKeys: String, CodingKey {
+        case items
+        case profiles
+        case groups
+        case nextFrom = "next_from"
+    }
 }
 
 struct FeedItem: Codable {

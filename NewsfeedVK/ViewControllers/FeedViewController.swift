@@ -21,6 +21,9 @@ class FeedViewController: UIViewController {
 
     var cellLayoutCallculator: NewsfeedCellLayoutCalculator = NewsfeedCellLayoutCalculator()
 
+    private var feedResponse: FeedResponse?
+    private var nextFrom: String?
+
     var refreshControll: UIRefreshControl = {
         let refreshControll = UIRefreshControl()
         refreshControll.addTarget(self, action: #selector(refresh), for: .valueChanged)
@@ -150,14 +153,59 @@ class FeedViewController: UIViewController {
     // MARK: - Getting Newsfeed
 
     private func getNewsfeed() {
-        fetcher.getFeed { (feedResponse) in
+        fetcher.getFeed(nextBatchFrom: nil) { (feedResponse) in
             guard let feedResponse = feedResponse else {
                 return
             }
 
+            self.feedResponse = feedResponse
+            self.nextFrom = feedResponse.nextFrom
             self.feedViewModel = self.creatingFeedViewModel(feedResponse: feedResponse)
             self.tableView.reloadData()
             self.refreshControll.endRefreshing()
+        }
+    }
+
+    private func getNextBatch(nextBatchFrom: String?) {
+        fetcher.getFeed(nextBatchFrom: self.nextFrom ) { (feedResponse) in
+            guard let feed = feedResponse else {
+                return
+            }
+            guard nextBatchFrom != feed.nextFrom else {
+                return
+            }
+
+            if self.feedResponse == nil {
+                self.feedResponse = feed
+            } else {
+                self.feedResponse?.items.append(contentsOf: feed.items)
+                self.feedResponse?.nextFrom = feed.nextFrom
+
+                var profiles = feed.profiles
+                if let oldProfiles = self.feedResponse?.profiles {
+                    let oldProfilesFiltered = oldProfiles.filter({ (oldProfile) -> Bool in
+                        !feed.profiles.contains(where: {$0.id == oldProfile.id})
+                    })
+                    profiles.append(contentsOf: oldProfilesFiltered)
+                }
+                self.feedResponse?.profiles = profiles
+
+                var groups = feed.groups
+                if let oldGroups = self.feedResponse?.groups {
+                    let oldGroupsFiltered = oldGroups.filter({ (oldGroup) -> Bool in
+                        !feed.groups.contains(where: {$0.id == oldGroup.id})
+                    })
+                    groups.append(contentsOf: oldGroupsFiltered)
+                }
+                self.feedResponse?.groups = groups
+            }
+
+            guard let feedResponse = self.feedResponse else {
+                return
+            }
+            self.feedViewModel = self.creatingFeedViewModel(feedResponse: feedResponse)
+            self.tableView.reloadData()
+//            self.refreshControll.endRefreshing()
         }
     }
 
@@ -174,6 +222,15 @@ class FeedViewController: UIViewController {
             counterString = String(counterString.dropLast(6)) + "M"
         }
         return counterString
+    }
+
+    // MARK: - ScrollViewDidEndDragging
+
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if scrollView.contentOffset.y > scrollView.contentSize.height / 1.05 {
+            print("nextFrom: \(nextFrom)")
+            getNextBatch(nextBatchFrom: nextFrom)
+        }
     }
 }
 
