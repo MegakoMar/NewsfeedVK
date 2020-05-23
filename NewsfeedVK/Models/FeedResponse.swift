@@ -26,7 +26,7 @@ struct FeedItem: Codable {
     let date: Double
     let comments: CountableItem?
     let likes: CountableItem?
-    let reposts: CountableItem?
+    let shares: CountableItem?
     let views: CountableItem?
     let attachments: [Attechment]?
 
@@ -37,7 +37,7 @@ struct FeedItem: Codable {
         case date
         case comments
         case likes
-        case reposts
+        case shares
         case views
         case attachments
     }

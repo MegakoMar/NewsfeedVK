@@ -21,21 +21,21 @@ class FeedViewController: UIViewController {
 
     var cellLayoutCallculator: NewsfeedCellLayoutCalculator = NewsfeedCellLayoutCalculator()
 
+    var refreshControll: UIRefreshControl = {
+        let refreshControll = UIRefreshControl()
+        refreshControll.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        return refreshControll
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configNavBar()
+        tableView.addSubview(refreshControll)
 
         tableView.delegate = self
         tableView.dataSource = self
 
-        fetcher.getFeed { (feedResponse) in
-            guard let feedResponse = feedResponse else {
-                return
-            }
-
-            self.feedViewModel = self.creatingFeedViewModel(feedResponse: feedResponse)
-            self.tableView.reloadData()
-        }
+        getNewsfeed()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -89,10 +89,10 @@ class FeedViewController: UIViewController {
             groupName: profile.name,
             date: dateTitle,
             text: feedItem.text,
-            likes: String(feedItem.likes?.count ?? 0),
-            comments: String(feedItem.comments?.count ?? 0),
-            shares: String(feedItem.reposts?.count ?? 0),
-            views: String(feedItem.views?.count ?? 0),
+            likes: formattedCounter(feedItem.likes?.count),
+            comments: formattedCounter(feedItem.comments?.count),
+            shares: formattedCounter(feedItem.shares?.count),
+            views: formattedCounter(feedItem.views?.count),
             photoAttachments: photoAttachments,
             sizes: sizes
         )
@@ -140,6 +140,41 @@ class FeedViewController: UIViewController {
             )
         })
     }
+
+    // MARK: - Refreshing Data
+
+    @objc private func refresh() {
+        getNewsfeed()
+    }
+
+    // MARK: - Getting Newsfeed
+
+    private func getNewsfeed() {
+        fetcher.getFeed { (feedResponse) in
+            guard let feedResponse = feedResponse else {
+                return
+            }
+
+            self.feedViewModel = self.creatingFeedViewModel(feedResponse: feedResponse)
+            self.tableView.reloadData()
+            self.refreshControll.endRefreshing()
+        }
+    }
+
+    // MARK: - Formatting Counter
+
+    private func formattedCounter(_ counter: Int?) -> String? {
+        guard let counter = counter, counter > 0 else {
+            return nil
+        }
+        var counterString = String(counter)
+        if 4...6 ~= counterString.count {
+            counterString = String(counterString.dropLast(3)) + "K"
+        } else if counterString.count > 6 {
+            counterString = String(counterString.dropLast(6)) + "M"
+        }
+        return counterString
+    }
 }
 
  // MARK: - Extension UITableViewDataSource, UITableViewDelegate
@@ -150,11 +185,6 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        
-//        if feedViewModel.cells[indexPath.row].photoAttachments.count == 1 {
-//
-//        }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "feedCellId") else {
             fatalError("Unknowned cell id")
         }

@@ -86,7 +86,7 @@ class NewsfeedCellLayoutCalculator: NewsfeedCellLayoutCalculatorProtocol {
         }
 
         while count < photoAttachments.count {
-            height += max(heightArray[count], heightArray[count+1])
+            height += min(heightArray[count], heightArray[count+1])
             count += 2
         }
         return height
