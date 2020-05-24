@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BzE-hg-DLT">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -28,11 +29,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="AuthViewController" customModule="NewsfeedVK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAQ-sc-ga4">
-                                <rect key="frame" x="31" y="274" width="538" height="52"/>
+                                <rect key="frame" x="31" y="422" width="352" height="52"/>
                                 <color key="backgroundColor" red="0.23529411759999999" green="0.36078431370000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="j1P-pl-MWU"/>
@@ -68,22 +69,22 @@
             <objects>
                 <viewController storyboardIdentifier="NewsfeedID" id="793-w0-csM" customClass="FeedViewController" customModule="NewsfeedVK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lAw-EN-O6Z">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8Di-tX-FvX">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="feedCellId" rowHeight="582" id="DVX-z2-Tlk" customClass="NewsfeedCell" customModule="NewsfeedVK" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="582"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="582"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DVX-z2-Tlk" id="jhy-Ch-UES">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="582"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="582"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="nln-2j-XYw">
-                                                    <rect key="frame" x="18" y="15" width="564" height="40"/>
+                                                    <rect key="frame" x="18" y="15" width="378" height="40"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icAva" translatesAutoresizingMaskIntoConstraints="NO" id="mXG-60-r3g" customClass="WebImageView" customModule="NewsfeedVK" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -96,10 +97,10 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="xya-O6-BfE">
-                                                            <rect key="frame" x="52" y="0.0" width="512" height="40"/>
+                                                            <rect key="frame" x="52" y="0.0" width="326" height="40"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAf-Xo-jm3">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="512" height="19"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="326" height="19"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="19" id="u82-qq-Zcv"/>
                                                                     </constraints>
@@ -108,7 +109,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7D9-dD-bcO">
-                                                                    <rect key="frame" x="0.0" y="21" width="512" height="19"/>
+                                                                    <rect key="frame" x="0.0" y="21" width="326" height="19"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="19" id="qv9-xa-ni8"/>
                                                                     </constraints>
@@ -127,7 +128,7 @@
                                                     </constraints>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vR-SV-wgH">
-                                                    <rect key="frame" x="18" y="71" width="564" height="17"/>
+                                                    <rect key="frame" x="18" y="71" width="378" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -209,7 +210,7 @@
                                                     <rect key="frame" x="0.0" y="103" width="414" height="142"/>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="hYH-aq-ZPe">
-                                                    <rect key="frame" x="529.5" y="546" width="52.5" height="26"/>
+                                                    <rect key="frame" x="343.5" y="546" width="52.5" height="26"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icEye" translatesAutoresizingMaskIntoConstraints="NO" id="tVf-NM-iWB">
                                                             <rect key="frame" x="0.0" y="0.0" width="26" height="26"/>
@@ -230,7 +231,7 @@
                                                     </constraints>
                                                 </stackView>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NXv-hu-C0V" customClass="CollectionView" customModule="NewsfeedVK" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="98" width="600" height="438"/>
+                                                    <rect key="frame" x="0.0" y="98" width="414" height="438"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AFZ-nA-qSH">
                                                         <size key="itemSize" width="128" height="128"/>
@@ -239,8 +240,8 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewFirstCell" id="6HG-Hx-Jen" customClass="CollectionViewCell" customModule="NewsfeedVK" customModuleProvider="target">
-                                                            <rect key="frame" x="93" y="0.0" width="414" height="128"/>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="6HG-Hx-Jen" customClass="CollectionViewCell" customModule="NewsfeedVK" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Huq-Jt-q2i">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
