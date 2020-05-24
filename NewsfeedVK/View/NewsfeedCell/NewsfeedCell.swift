@@ -62,25 +62,6 @@ class NewsfeedCell: UITableViewCell {
         viewsCountLabel.text = viewModel.views
         postLabel.frame = viewModel.sizes.postLabelFrame
 
-//        if let photoAttachment = viewModel.photoAttachments.first, viewModel.photoAttachments.count == 1 {
-//            postImageView.setImage(imageURL: photoAttachment.photoUrl)
-//            postImageView.isHidden = false
-//            collectionView.isHidden = true
-//            postImageView.frame = viewModel.sizes.attachmentFrame
-//        } else if viewModel.photoAttachments.count > 1 {
-//            collectionView.set(photos: viewModel.photoAttachments)
-//            postImageView.isHidden = true
-////            postImageView.frame = .zero
-//            collectionView.isHidden = false
-//            collectionView.frame = viewModel.sizes.attachmentFrame
-//            collectionView.frame = CGRect(origin: postImageView.frame.origin, size: viewModel.sizes.attachmentFrame.size)
-//            print("postImageView.frame: \(postImageView.frame.origin)")
-//            print("collectionView.frame: \(collectionView.frame.origin)")
-//        } else {
-//            postImageView.isHidden = true
-//            collectionView.isHidden = true
-//        }
-
         if viewModel.photoAttachments.count > 0 {
             collectionView.set(photos: viewModel.photoAttachments)
             collectionView.isHidden = false

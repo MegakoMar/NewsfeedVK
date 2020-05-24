@@ -19,23 +19,8 @@ class CollectionView: UICollectionView {
         delegate = self
         dataSource = self
         reloadData()
-//        print(#function)
     }
-
-//    init() {
-//        let layout = UICollectionViewFlowLayout()
-//        layout.scrollDirection = .horizontal
-//        super.init(frame: .zero, collectionViewLayout: layout)
-//        delegate = self
-//        dataSource = self
-//        register(CollectionViewFirstCell.self, forCellWithReuseIdentifier: CollectionViewFirstCell.reuseID)
-//        backgroundColor = #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-
+    
     // MARK: - Setting photos to CollectionView
 
     func set(photos: [FeedCellAphotoAttachmentViewModel]) {
@@ -53,7 +38,7 @@ extension CollectionView: UICollectionViewDelegate, UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let firstCell = dequeueReusableCell(withReuseIdentifier: CollectionViewFirstCell.reuseID, for: indexPath) as! CollectionViewFirstCell
+        let firstCell = dequeueReusableCell(withReuseIdentifier: CollectionViewCell.reuseID, for: indexPath) as! CollectionViewCell
         firstCell.set(imageURL: photos[indexPath.row].photoUrl)
         return firstCell
     }

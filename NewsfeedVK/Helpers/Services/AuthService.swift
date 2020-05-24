@@ -29,7 +29,6 @@ class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     override init() {
         vkSdk = VKSdk.initialize(withAppId: appID)
         super.init()
-//        print("VKSdk.initialize")
         vkSdk.register(self)
         vkSdk.uiDelegate = self
     }
@@ -40,12 +39,9 @@ class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
         let scope = ["offline", "wall", "friends"]
         VKSdk.wakeUpSession(scope, complete: { (state, error) in
             switch state {
-
             case .initialized:
-//                print("initialized")
                 VKSdk.authorize(scope)
             case .authorized:
-//                print("authorized")
                 self.delegate?.authServiceSingIn()
             default:
                 self.delegate?.authServiceSingInDidFail()
@@ -56,19 +52,16 @@ class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     // MARK: - Methods of VKSdkDelegate and VKSdkUIDelegate
 
     func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
-        print(#function)
         if result.token != nil {
             delegate?.authServiceSingIn()
         }
     }
 
     func vkSdkUserAuthorizationFailed() {
-        print(#function)
         delegate?.authServiceSingInDidFail()
     }
 
     func vkSdkShouldPresent(_ controller: UIViewController!) {
-        print(#function)
         delegate?.authServiceShouldShow(viewController: controller)
     }
 

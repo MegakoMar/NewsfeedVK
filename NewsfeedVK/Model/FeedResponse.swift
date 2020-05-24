@@ -130,11 +130,44 @@ struct PhotoSize: Codable {
 }
 
 struct Video: Codable {
+    let id: Int
+    let ownerId: Int
     let duration: Int
-    let photo640: String
+    let image: [Image]
+    let accessKey: String?
+    var imageUrl: String {
+        return getPropperImage().url
+    }
+
+    var imageWidth: Int {
+        return getPropperImage().width
+    }
+
+    var imageHeight: Int {
+        return getPropperImage().height
+    }
 
     enum CodingKeys: String, CodingKey {
+        case id
+        case ownerId = "owner_id"
         case duration
-        case photo640 = "photo_640"
+        case image
+        case accessKey = "access_key"
+    }
+
+    private func getPropperImage() -> Image {
+        if let size640 = image.first(where: { $0.width == 640 }) {
+            return size640
+        } else if let size320 = image.first(where: { $0.width == 320 }) {
+             return size320
+        } else {
+            return Image(url: "wrong image", width: 0, height: 0)
+        }
+    }
+
+    struct Image: Codable {
+        let url: String
+        let width: Int
+        let height: Int
     }
 }
